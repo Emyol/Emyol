@@ -71,3 +71,16 @@ def test_flow_draws_icon_and_label():
     out, _ = flow([('react', 'React')], 0, 1000, 100, P)
     assert 'aria-label="React"' in out
     assert f'fill="{P["prompt"]}"' in out
+
+
+def test_prompt_prefix_appears_with_its_command():
+    out = prompt_line('whoami', 40, 54, P, delay_ms=1050)
+    assert 'class="show" style="animation-delay:1050ms"' in out
+
+
+def test_static_prompt_line_has_no_motion_classes():
+    assert 'class="show"' not in prompt_line('exit', 40, 54, P)
+
+
+def test_show_is_disabled_under_reduced_motion():
+    assert '.show' in MOTION_CSS.split('@media')[1]

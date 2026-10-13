@@ -10,6 +10,13 @@ from term import (CHROME_H, MOTION_CSS, SIZE_BODY, SIZE_SECONDARY, SIZE_SMALL, c
 
 STATIC = ROOT / 'assets' / 'static'
 
+# neofetch layout: key column, first item column, right limit, gap between items
+STACK_KEY_X = 250
+STACK_ITEMS_X = 400
+STACK_RIGHT = WIDTH - 30
+STACK_GAP = 20
+SUN_SIZE = SIZE_SMALL
+
 ROLE = ('Student leader · web & mobile · ', 'FEU Tech', ', Manila')
 
 PROJECTS = [
@@ -98,16 +105,16 @@ def work_strip(index: int, project: dict, theme: str) -> str:
 def stack_panel(theme: str) -> str:
     p = PALETTES[theme]
     top = CHROME_H + 62
-    sun = ''.join(text(line, 48, top + i * 30, SIZE_SECONDARY, p['prompt']) for i, line in enumerate(SUN))
+    sun = ''.join(text(line, 48, top + i * 30, SUN_SIZE, p['prompt']) for i, line in enumerate(SUN))
     sun += text('miel@manila', 48, top + len(SUN) * 30 + 30, SIZE_SMALL, p['dim'])
     body = rise(sun, 100)  # the title bar already reads "neofetch"
     y = top
     for i, (key, items) in enumerate(STACK):
-        row = text(key, 300, y, SIZE_SECONDARY, p['prompt'], weight=700)
-        items_svg, rows = flow(items, 460, WIDTH - 40, y, p)
+        row = text(key, STACK_KEY_X, y, SIZE_SECONDARY, p['prompt'], weight=700)
+        items_svg, rows = flow(items, STACK_ITEMS_X, STACK_RIGHT, y, p, gap=STACK_GAP)
         body += rise(row + items_svg, 150 + i * 60)
         y += rows * 44 + 14
-    swatches = ''.join(rect(300 + i * 34, y, 26, 14, color, 3)
+    swatches = ''.join(rect(STACK_KEY_X + i * 34, y, 26, 14, color, 3)
                        for i, color in enumerate([*p['heat'], p['string']]))
     body += rise(swatches, 150 + len(STACK) * 60)
     height = int(max(y + 50, top + (len(SUN) + 1) * 30 + 40))

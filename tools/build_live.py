@@ -25,6 +25,12 @@ PROFILE_REPO = 'Emyol/Emyol'
 LIVE = ROOT / 'assets' / 'live'
 VALUE_X = 420
 
+# One colour per language slot (top five, then Other), chosen per theme for contrast.
+SERIES = {
+    'dark': ('#7ee2a0', '#4fa36e', '#a8d8ff', '#d7e4da', '#2b6a44', '#7d8f82'),
+    'light': ('#1f7a43', '#3f9a62', '#0b5cad', '#1d2a21', '#5d6e62', '#7f9486'),
+}
+
 
 def days(n: int) -> str:
     return f'{n} day' if n == 1 else f'{n} days'
@@ -65,7 +71,7 @@ def stats_panel(view: StatsView, theme: str) -> str:
     lang = text('languages', 48, y, SIZE_SECONDARY, p['dim'])
     end_y = y
     if view.languages:
-        colors = [p['heat'][4], p['heat'][3], p['heat'][2], p['string'], p['heat'][1], p['dim']]
+        colors = SERIES[theme]
         bar_w = WIDTH - 40 - VALUE_X
         x = VALUE_X
         for i, ((_, pct), color) in enumerate(zip(view.languages, colors)):

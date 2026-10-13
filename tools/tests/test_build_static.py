@@ -1,5 +1,7 @@
 import build_static as bs
 from svg import PALETTES, missing_glyphs, validate
+from svg import text_width
+from term import SIZE_SECONDARY, flow
 
 FILES = bs.build_all()
 
@@ -57,3 +59,17 @@ def test_stack_lists_every_group_and_tool():
         assert f'aria-label="{key}"' in stack
         for _, label in items:
             assert f'aria-label="{label}"' in stack
+
+
+def test_each_stack_group_fits_on_one_row():
+    """A lone wrapped item (e.g. 'C++' under Languages) reads as a layout bug."""
+    for key, items in bs.STACK:
+        _, rows = flow(items, bs.STACK_ITEMS_X, bs.STACK_RIGHT, 0, PALETTES['dark'], gap=bs.STACK_GAP)
+        assert rows == 1, key
+
+
+def test_neofetch_columns_have_breathing_room():
+    sun_right = 48 + max(text_width(line, bs.SUN_SIZE) for line in bs.SUN)
+    assert sun_right + 16 <= bs.STACK_KEY_X
+    widest_key = max(text_width(key, SIZE_SECONDARY, weight=700) for key, _ in bs.STACK)
+    assert bs.STACK_KEY_X + widest_key + 16 <= bs.STACK_ITEMS_X

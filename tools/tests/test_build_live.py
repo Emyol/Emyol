@@ -9,7 +9,7 @@ import pytest
 import build_live
 from github_api import GitHubError, fetch_profile
 from stats import END, MANILA, START, StatsView
-from svg import validate
+from svg import PALETTES, validate
 
 FIXTURE = Path(__file__).parent / 'fixtures' / 'user.json'
 README = f'# hi\n{START}\nold\n{END}\nbye\n'
@@ -110,3 +110,22 @@ def test_request_sends_token_and_manila_year_start():
     assert fetch_profile('Emyol', 'tok', NOW, opener=opener) == {'ok': 1}
     assert seen['auth'] == 'bearer tok'
     assert seen['body']['variables'] == {'login': 'Emyol', 'yearStart': '2026-01-01T00:00:00+08:00'}
+
+
+def _luminance(hex_color):
+    channels = [int(hex_color[i:i + 2], 16) / 255 for i in (1, 3, 5)]
+    r, g, b = [c / 12.92 if c <= 0.03928 else ((c + 0.055) / 1.055) ** 2.4 for c in channels]
+    return 0.2126 * r + 0.7152 * g + 0.0722 * b
+
+
+def _contrast(a, b):
+    hi, lo = sorted((_luminance(a), _luminance(b)), reverse=True)
+    return (hi + 0.05) / (lo + 0.05)
+
+
+@pytest.mark.parametrize('theme', ['dark', 'light'])
+def test_language_series_colors_are_visible_and_distinct(theme):
+    colors = build_live.SERIES[theme]
+    assert len(colors) == 6 and len(set(colors)) == 6
+    for color in colors:
+        assert _contrast(color, PALETTES[theme]['bg']) >= 2.5, color

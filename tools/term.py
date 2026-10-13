@@ -19,11 +19,13 @@ MOTION_CSS = (
     f'.rise{{animation:rise 420ms {EASE_OUT} both}}'
     '.type{transform-box:fill-box;transform-origin:right;transform:scaleX(0);'
     'animation-name:type;animation-fill-mode:both}'
+    '.show{animation:show 1ms linear both}'
     '.cursor{animation:blink 1.06s steps(1) infinite}'
     '@keyframes rise{from{opacity:0;transform:translateY(6px)}}'
     '@keyframes type{from{transform:scaleX(1)}}'
+    '@keyframes show{from{opacity:0}}'
     '@keyframes blink{50%{opacity:0}}'
-    '@media (prefers-reduced-motion:reduce){.rise,.type,.cursor{animation:none}}'
+    '@media (prefers-reduced-motion:reduce){.rise,.type,.show,.cursor{animation:none}}'
 )
 
 
@@ -40,6 +42,11 @@ def window(height: int, title: str | None, body: str, p: dict) -> str:
 
 def rise(content: str, delay_ms: int) -> str:
     return f'<g class="rise" style="animation-delay:{delay_ms}ms">{content}</g>'
+
+
+def show(content: str, delay_ms: int) -> str:
+    """Appear instantly at `delay_ms` (no movement), e.g. a prompt just before its command types."""
+    return f'<g class="show" style="animation-delay:{delay_ms}ms">{content}</g>'
 
 
 def typed(content: str, x: float, y_top: float, width: float, height: float, bg: str,
@@ -59,7 +66,7 @@ def prompt_line(command: str, x: float, y: float, p: dict, delay_ms: int | None 
     line = text(command, cx, y, size, p['fg'])
     if delay_ms is None:
         return prefix + line
-    return prefix + typed(line, cx, y - size, text_width(command, size), size * 1.35,
+    return show(prefix, delay_ms) + typed(line, cx, y - size, text_width(command, size), size * 1.35,
                           p['bg'], delay_ms, len(command))
 
 
