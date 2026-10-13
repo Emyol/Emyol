@@ -98,6 +98,26 @@ def circle(cx, cy, r, fill: str) -> str:
     return f'<circle cx="{cx}" cy="{cy}" r="{r}" fill="{fill}"/>'
 
 
+@lru_cache(maxsize=None)
+def _icon_source(name: str) -> tuple[tuple[float, ...], tuple[str, ...]]:
+    path = ICONS / f'{name}.svg'
+    if not path.exists():
+        raise FileNotFoundError(f'icon not vendored: {name} (expected {path})')
+    root = ET.parse(path).getroot()
+    view_box = tuple(float(v) for v in root.get('viewBox').split())
+    paths = tuple(el.get('d') for el in root.iter() if el.tag.endswith('path') and el.get('d'))
+    return view_box, paths
+
+
+def icon(name: str, x: float, y: float, size: float, color: str) -> str:
+    """Inline a vendored single-colour icon into a size×size box with its top-left at (x, y)."""
+    (min_x, min_y, w, h), paths = _icon_source(name)
+    scale = size / max(w, h)
+    body = ''.join(f'<path d="{d}"/>' for d in paths)
+    return (f'<g fill="{color}" transform="translate({x:.2f} {y:.2f}) scale({scale:.5f}) '
+            f'translate({-min_x:g} {-min_y:g})">{body}</g>')
+
+
 def document(height: int, title: str, body: str, css: str = '') -> str:
     style = f'<style>{css}</style>' if css else ''
     return (f'<svg xmlns="http://www.w3.org/2000/svg" width="{WIDTH}" height="{height}" '
