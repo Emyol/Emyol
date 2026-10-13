@@ -73,3 +73,10 @@ def test_neofetch_columns_have_breathing_room():
     assert sun_right + 16 <= bs.STACK_KEY_X
     widest_key = max(text_width(key, SIZE_SECONDARY, weight=700) for key, _ in bs.STACK)
     assert bs.STACK_KEY_X + widest_key + 16 <= bs.STACK_ITEMS_X
+
+
+def test_committed_static_assets_match_the_builder():
+    """Stale committed art is easy to ship after a shared CSS/layout change; rebuild with build_static.py."""
+    stale = [name for name, svg in FILES.items()
+             if (bs.STATIC / name).read_text(encoding='utf-8') != svg]
+    assert stale == []
