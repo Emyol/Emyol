@@ -1,0 +1,41 @@
+{
+  "thisYear": {"contributionCalendar": {"totalContributions": 142}},
+  "calendar": {"contributionCalendar": {"weeks": [{"contributionDays": [
+    {"date": "2026-10-01", "contributionCount": 1},
+    {"date": "2026-10-02", "contributionCount": 0},
+    {"date": "2026-10-03", "contributionCount": 2},
+    {"date": "2026-10-04", "contributionCount": 1},
+    {"date": "2026-10-05", "contributionCount": 3},
+    {"date": "2026-10-06", "contributionCount": 1},
+    {"date": "2026-10-07", "contributionCount": 0},
+    {"date": "2026-10-08", "contributionCount": 0},
+    {"date": "2026-10-09", "contributionCount": 0},
+    {"date": "2026-10-10", "contributionCount": 0},
+    {"date": "2026-10-11", "contributionCount": 4},
+    {"date": "2026-10-12", "contributionCount": 2},
+    {"date": "2026-10-13", "contributionCount": 1}
+  ]}]}},
+  "owned": {"totalCount": 16, "nodes": [
+    {"isFork": false, "languages": {"edges": [{"size": 6000, "node": {"name": "TypeScript"}}, {"size": 500, "node": {"name": "CSS"}}]}},
+    {"isFork": false, "languages": {"edges": [{"size": 3000, "node": {"name": "Python"}}]}},
+    {"isFork": false, "languages": {"edges": [{"size": 1500, "node": {"name": "Dart"}}]}},
+    {"isFork": false, "languages": {"edges": [{"size": 1000, "node": {"name": "JavaScript"}}, {"size": 400, "node": {"name": "HTML"}}]}},
+    {"isFork": false, "languages": {"edges": [{"size": 300, "node": {"name": "C++"}}]}}
+  ]},
+  "recent": {"nodes": [
+    {"name": "pane", "nameWithOwner": "Emyol/pane", "defaultBranchRef": {"target": {"history": {"nodes": [
+      {"oid": "a1b2c3d4e5f60718293a4b5c6d7e8f9012345678", "messageHeadline": "pane: add widget grid persistence", "committedDate": "2026-10-12T10:00:00Z", "url": "https://github.com/Emyol/pane/commit/a1b2c3d", "author": {"user": {"login": "Emyol"}}},
+      {"oid": "ffffffffffffffffffffffffffffffffffffffff", "messageHeadline": "Merge branch 'main'", "committedDate": "2026-10-12T11:00:00Z", "url": "https://github.com/Emyol/pane/commit/fffffff", "author": {"user": {"login": "Emyol"}}}
+    ]}}}},
+    {"name": "Emyol", "nameWithOwner": "Emyol/Emyol", "defaultBranchRef": {"target": {"history": {"nodes": [
+      {"oid": "1111111111111111111111111111111111111111", "messageHeadline": "chore: refresh live profile data", "committedDate": "2026-10-13T00:00:00Z", "url": "https://github.com/Emyol/Emyol/commit/1111111", "author": {"user": null}}
+    ]}}}},
+    {"name": "MielPortfolio", "nameWithOwner": "Emyol/MielPortfolio", "defaultBranchRef": {"target": {"history": {"nodes": [
+      {"oid": "9f8e7d6c5b4a39281706f5e4d3c2b1a098765432", "messageHeadline": "hero motion <polish> & *tweaks*", "committedDate": "2026-10-11T09:00:00Z", "url": "https://github.com/Emyol/MielPortfolio/commit/9f8e7d6", "author": {"user": {"login": "Emyol"}}}
+    ]}}}},
+    {"name": "KitaKo_Codebase", "nameWithOwner": "Emyol/KitaKo_Codebase", "defaultBranchRef": null},
+    {"name": "BekiLang", "nameWithOwner": "Emyol/BekiLang", "defaultBranchRef": {"target": {"history": {"nodes": [
+      {"oid": "4c5d6e7f8091a2b3c4d5e6f708192a3b4c5d6e7f", "messageHeadline": "interpreter: support nested chika blocks", "committedDate": "2026-10-10T08:00:00Z", "url": "https://github.com/Emyol/BekiLang/commit/4c5d6e7", "author": {"user": {"login": "Emyol"}}}
+    ]}}}}
+  ]}
+}
