@@ -73,9 +73,9 @@
 **`$ git log --oneline -3`**
 
 <!-- recent:start -->
-- [`a7b4461`](https://github.com/Emyol/CreativePortfolio/commit/a7b4461d477a8e30a8e1b64af048439f5575581c) **CreativePortfolio**: docs: capture creative portfolio brief and content inbox
-- [`8222195`](https://github.com/Emyol/MielPortfolio/commit/8222195db16545501a2efee13a9737b74e299bc7) **MielPortfolio**: Add editable portfolio admin with Supabase backend
-- [`37593f7`](https://github.com/Emyol/MielPortfolio/commit/37593f790044f9497bd171d144e359bef9f8ec30) **MielPortfolio**: Improve portfolio search visibility
+- [`85e0f14`](https://github.com/Emyol/BekiLang/commit/85e0f1425c86b98d814ebb3cf2aaf6e68c2d6fb7) **BekiLang**: chore: add agent config and ignore local artifacts
+- [`9481eb2`](https://github.com/Emyol/BekiLang/commit/9481eb2a3ff8fe596523d2a241f03664be8a9426) **BekiLang**: docs: record product context and the Studio design system
+- [`14f8d00`](https://github.com/Emyol/BekiLang/commit/14f8d00270bc270fe7b7d4afa915bf61758b9722) **BekiLang**: feat: redesign BekiLang Studio as a tabloid front page
 <!-- recent:end -->
 
 <picture>
