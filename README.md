@@ -73,9 +73,9 @@
 **`$ git log --oneline -3`**
 
 <!-- recent:start -->
-- [`85e0f14`](https://github.com/Emyol/BekiLang/commit/85e0f1425c86b98d814ebb3cf2aaf6e68c2d6fb7) **BekiLang**: chore: add agent config and ignore local artifacts
-- [`9481eb2`](https://github.com/Emyol/BekiLang/commit/9481eb2a3ff8fe596523d2a241f03664be8a9426) **BekiLang**: docs: record product context and the Studio design system
-- [`14f8d00`](https://github.com/Emyol/BekiLang/commit/14f8d00270bc270fe7b7d4afa915bf61758b9722) **BekiLang**: feat: redesign BekiLang Studio as a tabloid front page
+- [`6a31293`](https://github.com/Emyol/MielPortfolio/commit/6a312932e021b570d060eff837d0980eacf5c5bd) **MielPortfolio**: Fix publishing under Supabase's safeupdate guard
+- [`da15145`](https://github.com/Emyol/CreativePortfolio/commit/da151456a29e2d14601d476ba9c1aa7a7351e687) **CreativePortfolio**: fix: let publishing clear the published photo list under safeupdate
+- [`34c94f5`](https://github.com/Emyol/CreativePortfolio/commit/34c94f5fbb88a1345e5a836815c9ddb899dbf4c4) **CreativePortfolio**: fix: give each entry's toggle an id no field can take
 <!-- recent:end -->
 
 <picture>
