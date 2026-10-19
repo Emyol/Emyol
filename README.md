@@ -73,9 +73,9 @@
 **`$ git log --oneline -3`**
 
 <!-- recent:start -->
-- [`6a31293`](https://github.com/Emyol/MielPortfolio/commit/6a312932e021b570d060eff837d0980eacf5c5bd) **MielPortfolio**: Fix publishing under Supabase's safeupdate guard
-- [`da15145`](https://github.com/Emyol/CreativePortfolio/commit/da151456a29e2d14601d476ba9c1aa7a7351e687) **CreativePortfolio**: fix: let publishing clear the published photo list under safeupdate
-- [`34c94f5`](https://github.com/Emyol/CreativePortfolio/commit/34c94f5fbb88a1345e5a836815c9ddb899dbf4c4) **CreativePortfolio**: fix: give each entry's toggle an id no field can take
+- [`d5f1a18`](https://github.com/Emyol/CreativePortfolio/commit/d5f1a18f7688c2f4956c8f41bee178b0409834dd) **CreativePortfolio**: feat: adjust the candid's dots in the admin
+- [`f7d70b9`](https://github.com/Emyol/CreativePortfolio/commit/f7d70b95a64d967618238e0277537bad2d3fc02e) **CreativePortfolio**: fix: keep the dot screen lit after a resize, flicker once, sample a s…
+- [`529b231`](https://github.com/Emyol/CreativePortfolio/commit/529b23106da475d734b1d54e86cd0ed31e1e96b2) **CreativePortfolio**: fix: repaint the event prints after a resize
 <!-- recent:end -->
 
 <picture>
