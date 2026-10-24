@@ -73,9 +73,9 @@
 **`$ git log --oneline -3`**
 
 <!-- recent:start -->
+- [`22b2143`](https://github.com/Emyol/CreativePortfolio/commit/22b2143773dcad3293d3ae75cd8978ff4c7e0369) **CreativePortfolio**: chore: ignore arena runs and the Impeccable hook cache
+- [`aec51e1`](https://github.com/Emyol/CreativePortfolio/commit/aec51e1d7b8de2cd0d9d89368d92d3bc81e3f72c) **CreativePortfolio**: docs: add a root README
 - [`d5f1a18`](https://github.com/Emyol/CreativePortfolio/commit/d5f1a18f7688c2f4956c8f41bee178b0409834dd) **CreativePortfolio**: feat: adjust the candid's dots in the admin
-- [`f7d70b9`](https://github.com/Emyol/CreativePortfolio/commit/f7d70b95a64d967618238e0277537bad2d3fc02e) **CreativePortfolio**: fix: keep the dot screen lit after a resize, flicker once, sample a s…
-- [`529b231`](https://github.com/Emyol/CreativePortfolio/commit/529b23106da475d734b1d54e86cd0ed31e1e96b2) **CreativePortfolio**: fix: repaint the event prints after a resize
 <!-- recent:end -->
 
 <picture>
