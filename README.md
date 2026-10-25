@@ -73,9 +73,9 @@
 **`$ git log --oneline -3`**
 
 <!-- recent:start -->
-- [`22b2143`](https://github.com/Emyol/CreativePortfolio/commit/22b2143773dcad3293d3ae75cd8978ff4c7e0369) **CreativePortfolio**: chore: ignore arena runs and the Impeccable hook cache
-- [`aec51e1`](https://github.com/Emyol/CreativePortfolio/commit/aec51e1d7b8de2cd0d9d89368d92d3bc81e3f72c) **CreativePortfolio**: docs: add a root README
-- [`d5f1a18`](https://github.com/Emyol/CreativePortfolio/commit/d5f1a18f7688c2f4956c8f41bee178b0409834dd) **CreativePortfolio**: feat: adjust the candid's dots in the admin
+- [`6442f77`](https://github.com/Emyol/CreativePortfolio/commit/6442f77130b655b3f473512aac74542ef684fbe3) **CreativePortfolio**: feat: keep a long title coming round for the whole song
+- [`09a2d75`](https://github.com/Emyol/CreativePortfolio/commit/09a2d752f56a62dcce2bf0ea93e9ebe2e0c85bdd) **CreativePortfolio**: fix: keep the screen's scroll smooth and exact for any title
+- [`d7ce86c`](https://github.com/Emyol/CreativePortfolio/commit/d7ce86c19d7967ec61132db1bc05ed0fbd80635d) **CreativePortfolio**: feat: scroll a song title too long for the device's screen
 <!-- recent:end -->
 
 <picture>
