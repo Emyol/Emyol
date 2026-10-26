@@ -73,9 +73,9 @@
 **`$ git log --oneline -3`**
 
 <!-- recent:start -->
-- [`6442f77`](https://github.com/Emyol/CreativePortfolio/commit/6442f77130b655b3f473512aac74542ef684fbe3) **CreativePortfolio**: feat: keep a long title coming round for the whole song
-- [`09a2d75`](https://github.com/Emyol/CreativePortfolio/commit/09a2d752f56a62dcce2bf0ea93e9ebe2e0c85bdd) **CreativePortfolio**: fix: keep the screen's scroll smooth and exact for any title
-- [`d7ce86c`](https://github.com/Emyol/CreativePortfolio/commit/d7ce86c19d7967ec61132db1bc05ed0fbd80635d) **CreativePortfolio**: feat: scroll a song title too long for the device's screen
+- [`7f2e69a`](https://github.com/Emyol/CreativePortfolio/commit/7f2e69a61e94c1c58ae11933fd2e4ce4cc0f6df9) **CreativePortfolio**: fix: give the phone dock's screen a set share of the bar
+- [`000d83e`](https://github.com/Emyol/CreativePortfolio/commit/000d83e962f2d2fd0baa982e74cfb39234064aec) **CreativePortfolio**: fix: stop the phone dock's scrolling row from crashing event pages
+- [`59d95c2`](https://github.com/Emyol/stayflow-n8n/commit/59d95c28c8e2082bfa8d7d5f048379c102ef5701) **stayflow-n8n**: docs: record verified cloud deployment and Gmail binding fix
 <!-- recent:end -->
 
 <picture>
