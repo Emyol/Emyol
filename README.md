@@ -75,7 +75,7 @@
 <!-- recent:start -->
 - [`7f2e69a`](https://github.com/Emyol/CreativePortfolio/commit/7f2e69a61e94c1c58ae11933fd2e4ce4cc0f6df9) **CreativePortfolio**: fix: give the phone dock's screen a set share of the bar
 - [`000d83e`](https://github.com/Emyol/CreativePortfolio/commit/000d83e962f2d2fd0baa982e74cfb39234064aec) **CreativePortfolio**: fix: stop the phone dock's scrolling row from crashing event pages
-- [`59d95c2`](https://github.com/Emyol/stayflow-n8n/commit/59d95c28c8e2082bfa8d7d5f048379c102ef5701) **stayflow-n8n**: docs: record verified cloud deployment and Gmail binding fix
+- [`afbaa6e`](https://github.com/Emyol/CreativePortfolio/commit/afbaa6e87553ef66bb231dff08c5780f0f2e1af9) **CreativePortfolio**: chore: patch undici in the test environment
 <!-- recent:end -->
 
 <picture>
