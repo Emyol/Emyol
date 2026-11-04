@@ -73,9 +73,9 @@
 **`$ git log --oneline -3`**
 
 <!-- recent:start -->
-- [`7f2e69a`](https://github.com/Emyol/CreativePortfolio/commit/7f2e69a61e94c1c58ae11933fd2e4ce4cc0f6df9) **CreativePortfolio**: fix: give the phone dock's screen a set share of the bar
-- [`000d83e`](https://github.com/Emyol/CreativePortfolio/commit/000d83e962f2d2fd0baa982e74cfb39234064aec) **CreativePortfolio**: fix: stop the phone dock's scrolling row from crashing event pages
-- [`afbaa6e`](https://github.com/Emyol/CreativePortfolio/commit/afbaa6e87553ef66bb231dff08c5780f0f2e1af9) **CreativePortfolio**: chore: patch undici in the test environment
+- [`b317876`](https://github.com/Emyol/Stochastic4-Website/commit/b31787680907f720cff2141f29bbb73be80f8a30) **Stochastic4-Website**: feat: fill the hero with freely drifting gallery photos
+- [`134dea2`](https://github.com/Emyol/Stochastic4-Website/commit/134dea2b93990add33c4a79f1d20be9050eb5305) **Stochastic4-Website**: fix: show team names in first-name-first order
+- [`33256f7`](https://github.com/Emyol/Stochastic4-Website/commit/33256f78c8f597e331ebad802c7b89bfc864b92e) **Stochastic4-Website**: feat: add meaning map, hero constellation and scroll-in motion
 <!-- recent:end -->
 
 <picture>
