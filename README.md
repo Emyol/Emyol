@@ -73,9 +73,9 @@
 **`$ git log --oneline -3`**
 
 <!-- recent:start -->
-- [`6ca8593`](https://github.com/Emyol/Stochastic4-Website/commit/6ca8593916b00d1a57c02f59aa23befc3104079d) **Stochastic4-Website**: feat: add 'Kita mo? Kita ko.' focus intro on page load
-- [`b317876`](https://github.com/Emyol/Stochastic4-Website/commit/b31787680907f720cff2141f29bbb73be80f8a30) **Stochastic4-Website**: feat: fill the hero with freely drifting gallery photos
-- [`7f2e69a`](https://github.com/Emyol/CreativePortfolio/commit/7f2e69a61e94c1c58ae11933fd2e4ce4cc0f6df9) **CreativePortfolio**: fix: give the phone dock's screen a set share of the bar
+- [`d0bea87`](https://github.com/Emyol/MielPortfolio/commit/d0bea87658c9acf2300cad90657be8421892f798) **MielPortfolio**: chore: record the screenshot refresh and a design-hook exception
+- [`b74377b`](https://github.com/Emyol/MielPortfolio/commit/b74377b7e50cfdd77814a27cb02729d934544dd5) **MielPortfolio**: fix: refresh project screenshots and keep panel titles inside their g…
+- [`8556d4e`](https://github.com/Emyol/MielPortfolio/commit/8556d4ef41b249ae885ccf703f12a2c889a61ea6) **MielPortfolio**: docs: note the Dive branch push in current-state
 <!-- recent:end -->
 
 <picture>
