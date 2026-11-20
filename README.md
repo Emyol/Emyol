@@ -73,9 +73,9 @@
 **`$ git log --oneline -3`**
 
 <!-- recent:start -->
-- [`d0bea87`](https://github.com/Emyol/MielPortfolio/commit/d0bea87658c9acf2300cad90657be8421892f798) **MielPortfolio**: chore: record the screenshot refresh and a design-hook exception
-- [`b74377b`](https://github.com/Emyol/MielPortfolio/commit/b74377b7e50cfdd77814a27cb02729d934544dd5) **MielPortfolio**: fix: refresh project screenshots and keep panel titles inside their g…
-- [`8556d4e`](https://github.com/Emyol/MielPortfolio/commit/8556d4ef41b249ae885ccf703f12a2c889a61ea6) **MielPortfolio**: docs: note the Dive branch push in current-state
+- [`3caf682`](https://github.com/Emyol/MielPortfolio/commit/3caf682bf966d77474adafb650240e4beba26b39) **MielPortfolio**: fix: keep certificate images inside their cards in Safari
+- [`a565e2b`](https://github.com/Emyol/MielPortfolio/commit/a565e2b051be55a352135d068ad23e9b736d785a) **MielPortfolio**: docs: record the performance pass in current-state
+- [`4b2529d`](https://github.com/Emyol/MielPortfolio/commit/4b2529d77971621b4b848f5c9d428cbfe7502fa5) **MielPortfolio**: perf: draw the ocean in a worker, remove layout shift, serve sized im…
 <!-- recent:end -->
 
 <picture>
