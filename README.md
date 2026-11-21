@@ -73,9 +73,9 @@
 **`$ git log --oneline -3`**
 
 <!-- recent:start -->
+- [`94ca54c`](https://github.com/Emyol/MielPortfolio/commit/94ca54c90eb046569787fde52ae9aaa539ff2205) **MielPortfolio**: feat: add Homestead, EventFlow and Kislap to Selected work
 - [`3caf682`](https://github.com/Emyol/MielPortfolio/commit/3caf682bf966d77474adafb650240e4beba26b39) **MielPortfolio**: fix: keep certificate images inside their cards in Safari
 - [`a565e2b`](https://github.com/Emyol/MielPortfolio/commit/a565e2b051be55a352135d068ad23e9b736d785a) **MielPortfolio**: docs: record the performance pass in current-state
-- [`4b2529d`](https://github.com/Emyol/MielPortfolio/commit/4b2529d77971621b4b848f5c9d428cbfe7502fa5) **MielPortfolio**: perf: draw the ocean in a worker, remove layout shift, serve sized im…
 <!-- recent:end -->
 
 <picture>
