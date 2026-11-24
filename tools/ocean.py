@@ -15,6 +15,9 @@ import math
 from html import escape
 from pathlib import Path
 
+from fontTools import subset
+from fontTools.ttLib import TTFont
+from fontTools.varLib.instancer import instantiateVariableFont
 from PIL import Image, ImageDraw, ImageFont
 
 from svg import FONTS, ROOT, TOOLS, text, text_width
@@ -27,7 +30,8 @@ MAX_BYTES = 1_200_000  # the hero is ~0.9 MB raw, ~75 KB gzipped
 BG, INK, ACCENT, MUTE, BODY = '#070707', '#ececec', '#2997ff', '#9d9d9d', '#c9c9c9'
 DIM_OP, FROST_OP, RIM_OP = 0.34, 0.16, 0.6
 RAMP = ' .:-=+*#%@'
-MONO = "ui-monospace,SFMono-Regular,Menlo,Consolas,'Liberation Mono',monospace"
+MONO = "'Dive Mono',ui-monospace,SFMono-Regular,Menlo,Consolas,'Liberation Mono',monospace"
+ADVANCE = 0.6  # Geist Mono's advance width, in em
 
 PROJECTS = [
     {'slug': 'kitako', 'title': 'KitaKo', 'meta': 'Undergraduate thesis · 2026', 'window': 'KitaKo · project site',
@@ -130,11 +134,36 @@ def rows_svg(layers, cw, chh):
             t = s.rstrip()
             if not t.strip():
                 continue
-            body.append(f'<text y="{(r + 0.78) * chh:.1f}" textLength="{len(t) * cw:.1f}">{escape(t)}</text>')
+            # No textLength: it makes browsers re-lay out every glyph on every repaint of an animated image,
+            # which pinned the main thread. The embedded font's fixed advance keeps the grid instead.
+            body.append(f'<text y="{(r + 0.78) * chh:.1f}">{escape(t)}</text>')
         if body:
             o = f' fill-opacity="{op}"' if op < 1 else ''
             out.append(f'<g fill="{fill}"{o}>{"".join(body)}</g>')
     return ''.join(out)
+
+
+_FACE = {}
+
+
+def mono_css(cw: float) -> str:
+    """CSS for the character rows: Geist Mono subset to the ramp, embedded, sized so one glyph is one cell."""
+    if 'css' not in _FACE:
+        font = instantiateVariableFont(TTFont(FONTS['mono']), {'wght': 400})
+        opts = subset.Options()
+        opts.layout_features, opts.name_IDs, opts.notdef_outline = [], [], False
+        opts.flavor = 'woff'
+        sub = subset.Subsetter(opts)
+        sub.populate(text=RAMP)
+        sub.subset(font)
+        buf = io.BytesIO()
+        font.flavor = 'woff'
+        font.recalcTimestamp = False  # keep rebuilds byte-identical
+        font['head'].modified = font['head'].created
+        font.save(buf)
+        data = base64.b64encode(buf.getvalue()).decode()
+        _FACE['css'] = f"@font-face{{font-family:'Dive Mono';src:url(data:font/woff;base64,{data}) format('woff')}}"
+    return _FACE['css'] + f'text{{font-family:{MONO};font-size:{cw / ADVANCE:.3f}px;white-space:pre}}'
 
 
 def svg_doc(h, title, css, body):
@@ -312,12 +341,15 @@ def hero() -> str:
     total = SWIM * 2
     kf = ''.join(f'{u * 100:.3f}%{{transform:translate({x:.1f}px,{y:.1f}px)}}' for u, x, y in keys)
     start = f'translate({keys[0][1]:.1f}px,{keys[0][2]:.1f}px)'
-    css = (f'text{{font-family:{MONO};font-size:{g.chh * 0.86:.1f}px;white-space:pre}}'
-           f'.f,.b{{opacity:0}}.f0,.b0{{opacity:1}}'
-           f'.f{{animation:fr {SECS}s step-end infinite}}@keyframes fr{{0%{{opacity:1}}{100 / F:.4f}%{{opacity:0}}}}'
-           f'.b{{animation:bt {BEAT_S}s step-end infinite}}@keyframes bt{{0%{{opacity:1}}{100 / BEAT:.4f}%{{opacity:0}}}}'
+    css = (mono_css(g.cw) +
+           # Frames are switched with visibility, not opacity: WebKit keeps painting opacity-0 text, which
+           # took Safari's engine from ~18 fps to 2 fps.
+           f'.f,.b{{visibility:hidden}}.f0,.b0{{visibility:visible}}'
+           f'.f{{animation:fr {SECS}s step-end infinite}}@keyframes fr{{0%{{visibility:visible}}{100 / F:.4f}%{{visibility:hidden}}}}'
+           f'.b{{animation:bt {BEAT_S}s step-end infinite}}@keyframes bt{{0%{{visibility:visible}}{100 / BEAT:.4f}%{{visibility:hidden}}}}'
            f'.swim{{transform:{start};animation:swim {total}s step-end infinite}}'
            f'@keyframes swim{{{kf}100%{{transform:{start}}}}}'
+           # The two legs keep opacity: a hidden parent cannot hide a child whose visibility is set to visible.
            f'.leg0{{animation:l0 {total}s step-end infinite}}.leg1{{opacity:0;animation:l1 {total}s step-end infinite}}'
            '@keyframes l0{0%{opacity:1}50%{opacity:0}}@keyframes l1{0%{opacity:0}50%{opacity:1}}'
            # Reduced motion (or no CSS animation): the first frame, the first beat, the starting place.
@@ -468,7 +500,7 @@ def card(item: dict, index: int) -> str:
              f'<rect x="{gx + .75}" y="{gy + .75}" width="{gw - 1.5}" height="{gh - 1.5}" rx="25.5" fill="none" stroke="url(#gr)" stroke-width="1.5"/>')
     body = (f'<defs><clipPath id="c"><rect width="{W}" height="{H}" rx="18"/></clipPath></defs>'
             f'<g clip-path="url(#c)"><rect width="{W}" height="{H}" fill="{BG}"/>{water}{glass}{win}{t}</g>')
-    css = f'text{{font-family:{MONO};font-size:{g.chh * 0.86:.1f}px;white-space:pre}}'
+    css = mono_css(g.cw)
     return svg_doc(H, f"{index + 1:02d} {item['title']}: {item['description']}", css, body)
 
 
