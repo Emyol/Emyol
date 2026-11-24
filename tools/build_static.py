@@ -1,12 +1,12 @@
-"""Build the committed terminal artwork (hero, work strips, stack, prompt bars).
+"""Build the committed section art (depth headers, the stack panel) in both GitHub themes.
 
 Run: python tools/build_static.py   → writes assets/static/*-{dark,light}.svg
+The hero and the project cards are built by tools/ocean.py.
 """
 from __future__ import annotations
 
-from svg import PALETTES, ROOT, THEMES, WIDTH, document, icon, rect, text, text_width, validate, write
-from term import (CHROME_H, MOTION_CSS, SIZE_BODY, SIZE_SECONDARY, SIZE_SMALL, cursor, flow,
-                  prompt_line, rise, window)
+from svg import PALETTES, ROOT, THEMES, WIDTH, document, rect, text, text_width, validate, write
+from term import CHROME_H, MOTION_CSS, SIZE_SECONDARY, SIZE_SMALL, flow, rise, window
 
 STATIC = ROOT / 'assets' / 'static'
 
@@ -16,19 +16,6 @@ STACK_ITEMS_X = 400
 STACK_RIGHT = WIDTH - 30
 STACK_GAP = 20
 SUN_SIZE = SIZE_SMALL
-
-ROLE = ('Student leader · web & mobile · ', 'FEU Tech', ', Manila')
-
-PROJECTS = [
-    {'slug': 'kitako', 'name': 'KitaKo', 'tagline': 'find a photo in your own words',
-     'icons': ['flutter', 'dart', 'onnx']},
-    {'slug': 'icare', 'name': 'iCARE Reservation', 'tagline': 'room bookings for 700+ STEM students',
-     'icons': ['nextdotjs', 'react', 'javascript']},
-    {'slug': 'bekilang', 'name': 'BekiLang', 'tagline': 'Swardspeak, compiled',
-     'icons': ['python', 'flask']},
-    {'slug': 'citysense', 'name': 'CitySense', 'tagline': 'urban heat & greenspace from orbit',
-     'icons': ['typescript', 'react', 'leaflet', 'vite']},
-]
 
 STACK = [
     ('Languages', [('typescript', 'TypeScript'), ('javascript', 'JavaScript'), ('python', 'Python'),
@@ -51,55 +38,25 @@ SUN = [
     r'    /   |   \ ',
 ]
 
-BARS = {
-    'work-header': ('ls ~/work', '--pinned', '$ ls ~/work --pinned: pinned projects'),
-    'graph-header': ('git log --graph --all', '', '$ git log --graph --all: contribution graph'),
-    'footer': ('exit', '— salamat sa pagbisita · thanks for stopping by',
-               '$ exit: salamat sa pagbisita, thanks for stopping by'),
+# Section headers read as depth marks on the way down, as the site's depth gauge does.
+HEADERS = {
+    'work-header': ('−40 m', 'Selected work', 'seven projects, newest first'),
+    'stack-header': ('−200 m', 'Toolkit', 'what I build with'),
+    'graph-header': ('−240 m', 'The trench', 'a year of commits, eaten daily'),
+    'footer': ('0 m', 'Back to the surface', 'salamat sa pagbisita, thanks for stopping by'),
 }
+HEADER_H = 96
 
-HERO_TITLE = 'Amiel Acuña: student leader building web and mobile software at FEU Tech, Manila.'
-
-
-def hero(theme: str) -> str:
+def header(depth: str, title: str, caption: str, theme: str) -> str:
+    """Transparent, so it sits on either GitHub theme: depth, title in Fraunces, caption, hairline."""
     p = PALETTES[theme]
-    body = prompt_line('whoami', 48, 118, p, delay_ms=200)
-    name = text('Amiel Acuña', 48, 212, 84, p['fg'], 'sans', 800, -2)
-    name += text('.', 48 + text_width('Amiel Acuña', 84, 'sans', 800, -2), 212, 84,
-                 p['prompt'], 'sans', 800)
-    body += rise(name, 650)
-    body += prompt_line('cat role.txt', 48, 274, p, delay_ms=1050)
-    x, role = 48, ''
-    for part, color in zip(ROLE, (p['fg'], p['string'], p['fg'])):
-        role += text(part, x, 322, SIZE_BODY, color)
-        x += text_width(part, SIZE_BODY)
-    body += rise(role, 1800)
-    caret_x = 48 + text_width('$ ', SIZE_BODY)
-    body += rise(text('$ ', 48, 372, SIZE_BODY, p['prompt'])
-                 + cursor(caret_x, 349, 16, 28, p['prompt']), 2100)
-    return document(400, HERO_TITLE, window(400, 'miel@manila: ~', body, p), MOTION_CSS)
-
-
-def prompt_bar(command: str, comment: str, theme: str, title: str) -> str:
-    p = PALETTES[theme]
-    body = prompt_line(command, 40, 54, p)
-    if comment:
-        body += text(comment, 40 + text_width(f'$ {command}  ', SIZE_BODY), 54, SIZE_SECONDARY, p['dim'])
-    return document(84, title, window(84, None, body, p))
-
-
-def work_strip(index: int, project: dict, theme: str) -> str:
-    p = PALETTES[theme]
-    body = text(f'{index + 1:02d}', 40, 86, SIZE_BODY, p['dim'])
-    body += text(project['name'], 120, 70, 40, p['fg'], 'sans', 700)
-    body += text(project['tagline'], 120, 112, SIZE_SECONDARY, p['dim'])
-    icons = project['icons']
-    x = WIDTH - 40 - len(icons) * 40 - (len(icons) - 1) * 16
-    for name in icons:
-        body += icon(name, x, 55, 40, p['prompt'])
-        x += 56
-    title = f"{index + 1:02d} {project['name']}: {project['tagline']}"
-    return document(150, title, window(150, None, rise(body, 120 + index * 60), p), MOTION_CSS)
+    fg = p['fg'] if theme == 'dark' else '#1f2328'
+    dim = p['dim'] if theme == 'dark' else '#59636e'
+    body = text(depth, 0, 40, 15, p['prompt'], 'mono', 500, 1.2)
+    body += text(title, 0, 82, 44, fg, 'serif', 800, -0.6)
+    body += text(caption, WIDTH - text_width(caption, 20, 'sans', 400), 82, 20, dim, 'sans', 400)
+    body += rect(0, HEADER_H - 2, WIDTH, 1, dim, extra=' fill-opacity=".35"')
+    return document(HEADER_H, f'{depth}: {title}. {caption}', rise(body, 80), MOTION_CSS)
 
 
 def stack_panel(theme: str) -> str:
@@ -126,25 +83,20 @@ def stack_panel(theme: str) -> str:
 def build_all() -> dict[str, str]:
     files = {}
     for theme in THEMES:
-        files[f'hero-{theme}.svg'] = hero(theme)
-        for stem, (command, comment, title) in BARS.items():
-            files[f'{stem}-{theme}.svg'] = prompt_bar(command, comment, theme, title)
-        for index, project in enumerate(PROJECTS):
-            files[f"work-{project['slug']}-{theme}.svg"] = work_strip(index, project, theme)
+        for stem, (depth, title, caption) in HEADERS.items():
+            files[f'{stem}-{theme}.svg'] = header(depth, title, caption, theme)
         files[f'stack-{theme}.svg'] = stack_panel(theme)
     return files
 
 
 def all_copy() -> list[tuple[str, int, str]]:
-    copy = [('sans', 800, 'Amiel Acuña.'), ('mono', 400, '$ whoami'), ('mono', 400, '$ cat role.txt'),
-            ('mono', 400, ''.join(ROLE)), ('mono', 400, 'miel@manila: ~'), ('mono', 400, 'neofetch'),
-            ('mono', 400, 'miel@manila'), ('mono', 400, '0123456789')]
-    copy += [('sans', 700, p['name']) for p in PROJECTS]
-    copy += [('mono', 400, p['tagline']) for p in PROJECTS]
+    copy = [('mono', 400, 'neofetch'), ('mono', 400, 'miel@manila'), ('mono', 400, '0123456789')]
+    copy += [('mono', 500, d) for d, _, _ in HEADERS.values()]
+    copy += [('serif', 800, t) for _, t, _ in HEADERS.values()]
+    copy += [('sans', 400, c) for _, _, c in HEADERS.values()]
     copy += [('mono', 700, key) for key, _ in STACK]
     copy += [('mono', 400, label) for _, items in STACK for _, label in items]
     copy += [('mono', 400, line) for line in SUN]
-    copy += [('mono', 400, f'$ {command} {comment}') for command, comment, _ in BARS.values()]
     return copy
 
 

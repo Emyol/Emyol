@@ -6,11 +6,10 @@ from term import SIZE_SECONDARY, flow
 FILES = bs.build_all()
 
 
-def test_builds_nine_assets_for_both_themes():
+def test_builds_five_assets_for_both_themes():
     stems = {name.rsplit('-', 1)[0] for name in FILES}
-    assert stems == {'hero', 'work-header', 'work-kitako', 'work-icare', 'work-bekilang',
-                     'work-citysense', 'stack', 'graph-header', 'footer'}
-    assert len(FILES) == 18
+    assert stems == {'work-header', 'stack-header', 'stack', 'graph-header', 'footer'}
+    assert len(FILES) == 10
 
 
 def test_every_asset_is_valid():
@@ -19,22 +18,21 @@ def test_every_asset_is_valid():
 
 
 def test_each_theme_uses_its_own_background():
-    assert PALETTES['dark']['bg'] in FILES['hero-dark.svg']
-    assert PALETTES['light']['bg'] in FILES['hero-light.svg']
-    assert PALETTES['dark']['bg'] not in FILES['hero-light.svg']
+    assert PALETTES['dark']['bg'] in FILES['stack-dark.svg']
+    assert PALETTES['light']['bg'] in FILES['stack-light.svg']
+    assert PALETTES['dark']['bg'] not in FILES['stack-light.svg']
 
 
-def test_hero_reads_as_a_session():
-    hero = FILES['hero-dark.svg']
-    for label in ['whoami', 'Amiel Acuña', 'cat role.txt', 'FEU Tech']:
-        assert f'aria-label="{label}"' in hero
-    assert 'class="cursor"' in hero and 'class="type"' in hero
+def test_headers_are_transparent_depth_marks():
+    for stem, (depth, title, _) in bs.HEADERS.items():
+        svg = FILES[f'{stem}-dark.svg']
+        assert f'aria-label="{depth}"' in svg and f'aria-label="{title}"' in svg
+        assert PALETTES['dark']['bg'] not in svg, stem
 
 
-def test_only_the_hero_loops():
+def test_nothing_static_loops():
     for name, svg in FILES.items():
-        if not name.startswith('hero'):
-            assert 'class="cursor"' not in svg, name
+        assert 'class="cursor"' not in svg, name
 
 
 def test_every_glyph_of_static_copy_exists():
@@ -44,13 +42,6 @@ def test_every_glyph_of_static_copy_exists():
 
 def test_no_hover_affordances():
     assert not any('↗' in svg for svg in FILES.values())
-
-
-def test_work_strips_name_their_project_and_stagger():
-    icare = FILES['work-icare-dark.svg']
-    assert 'aria-label="iCARE Reservation"' in icare
-    assert '700+ STEM students' in icare
-    assert 'animation-delay:180ms' in icare  # index 1 → 120 + 60
 
 
 def test_stack_lists_every_group_and_tool():

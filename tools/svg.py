@@ -1,4 +1,4 @@
-"""Shared SVG primitives for the terminal-style profile artwork.
+"""Shared SVG primitives for the profile artwork (the Dive look of project-miel.vercel.app).
 
 Text is outlined into <path>s because GitHub shows README images through
 <img>, which cannot load web fonts.
@@ -20,7 +20,10 @@ ICONS = TOOLS / 'icons'
 FONTS = {
     'sans': TOOLS / 'fonts' / 'Geist[wght].ttf',
     'mono': TOOLS / 'fonts' / 'GeistMono[wght].ttf',
+    'serif': TOOLS / 'fonts' / 'Fraunces[SOFT,WONK,opsz,wght].ttf',
 }
+# Fraunces is set as on the site: optical size 144, no softening, wonky on.
+FIXED_AXES = {'serif': {'opsz': 144, 'SOFT': 0, 'WONK': 1}}
 WIDTH = 1200
 MAX_BYTES = 300_000
 THEMES = ('dark', 'light')
@@ -29,21 +32,22 @@ SVG_NS = '{http://www.w3.org/2000/svg}'
 
 PALETTES = {
     'dark': {
-        'bg': '#0c100e', 'chrome': '#151b17', 'fg': '#d7e4da', 'dim': '#7d8f82',
-        'prompt': '#7ee2a0', 'string': '#a8d8ff', 'line': '#223028',
-        'heat': ('#141a16', '#1d3a28', '#2b6a44', '#4fa36e', '#7ee2a0'),
+        'bg': '#070707', 'chrome': '#0e0e0e', 'fg': '#ececec', 'dim': '#9d9d9d',
+        'prompt': '#2997ff', 'string': '#ececec', 'line': '#262626',
+        'heat': ('#161616', '#0b2d4d', '#114f87', '#1b74c2', '#2997ff'),
     },
     'light': {
-        'bg': '#f4f7f4', 'chrome': '#e8eee9', 'fg': '#1d2a21', 'dim': '#5d6e62',
-        'prompt': '#1f7a43', 'string': '#0b5cad', 'line': '#cfdcd2',
-        'heat': ('#e3e9e4', '#b9dcc4', '#7cc296', '#3f9a62', '#1f7a43'),
+        # the site's light surface (its case pages)
+        'bg': '#d9d9d5', 'chrome': '#e6e6e2', 'fg': '#0b0b0b', 'dim': '#4f4f4a',
+        'prompt': '#0058b8', 'string': '#0b0b0b', 'line': '#b4b4b0',
+        'heat': ('#c9c9c5', '#a9c6e6', '#6f9fd6', '#2f74c0', '#0058b8'),
     },
 }
 
 
 @lru_cache(maxsize=None)
 def _font(family: str, weight: int):
-    font = instantiateVariableFont(TTFont(FONTS[family]), {'wght': weight})
+    font = instantiateVariableFont(TTFont(FONTS[family]), {'wght': weight, **FIXED_AXES.get(family, {})})
     return font, font.getGlyphSet(), font.getBestCmap(), font['head'].unitsPerEm
 
 

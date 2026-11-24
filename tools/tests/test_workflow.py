@@ -14,10 +14,10 @@ def test_pins_action_versions():
         assert ref in WORKFLOW
 
 
-def test_snake_uses_phosphor_palette():
-    assert ('dist/github-snake.svg?color_snake=#1f7a43&color_dots=#e3e9e4,#b9dcc4,#7cc296,#3f9a62,#1f7a43'
+def test_snake_uses_the_dive_palette():
+    assert ('dist/github-snake.svg?color_snake=#0058b8&color_dots=#e6e6e2,#a9c6e6,#6f9fd6,#2f74c0,#0058b8'
             in WORKFLOW)
-    assert ('dist/github-snake-dark.svg?color_snake=#7ee2a0&color_dots=#141a16,#1d3a28,#2b6a44,#4fa36e,#7ee2a0'
+    assert ('dist/github-snake-dark.svg?color_snake=#2997ff&color_dots=#161616,#0b2d4d,#114f87,#1b74c2,#2997ff'
             in WORKFLOW)
 
 

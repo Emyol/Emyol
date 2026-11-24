@@ -9,19 +9,20 @@ from __future__ import annotations
 
 from playwright.sync_api import sync_playwright
 
+from ocean import PROJECTS
 from svg import ROOT, THEMES
 
 OUT = ROOT / 'previews'
 GITHUB_BG = {'dark': '#0d1117', 'light': '#ffffff'}
-ORDER = ['static/hero', 'static/work-header', 'static/work-kitako', 'static/work-icare',
-         'static/work-bekilang', 'static/work-citysense', 'static/stack', 'live/stats',
-         'static/graph-header', 'static/footer']
+# Entries ending in '-' come in a dark and a light file; the dive art is one file for both themes.
+ORDER = ['dive/hero', 'static/work-header-', *[f"dive/work-{p['slug']}" for p in PROJECTS],
+         'static/stack-header-', 'static/stack-', 'live/stats-', 'static/graph-header-', 'static/footer-']
 WIDTHS = (830, 360)
 SETTLE_MS = 4500
 
 
 def sheet_html(theme: str, width: int) -> str:
-    images = ''.join(f'<img src="{(ROOT / "assets" / f"{stem}-{theme}.svg").as_uri()}">' for stem in ORDER)
+    images = ''.join(f'<img src="{(ROOT / "assets" / (f"{stem}{theme}.svg" if stem.endswith("-") else f"{stem}.svg")).as_uri()}">' for stem in ORDER)
     return (f'<!doctype html><meta charset="utf-8"><style>body{{margin:0;padding:20px;'
             f'background:{GITHUB_BG[theme]}}}main{{width:{width}px;display:grid;gap:12px}}'
             f'img{{width:100%;display:block}}</style><main>{images}</main>')

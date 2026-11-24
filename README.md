@@ -1,54 +1,62 @@
-<!-- Art in assets/static is built by `python tools/build_static.py`; assets/live and the recent block are refreshed daily by .github/workflows/profile.yml. -->
+<!-- Art: assets/dive is built by `python tools/ocean.py`, assets/static by `python tools/build_static.py`; assets/live and the recent block are refreshed daily by .github/workflows/profile.yml. -->
 
 <a href="https://project-miel.vercel.app">
-  <picture>
-    <source media="(prefers-color-scheme: dark)" srcset="assets/static/hero-dark.svg">
-    <img alt="$ whoami: Amiel Acuña. Student leader building web and mobile software at FEU Tech, Manila." src="assets/static/hero-light.svg" width="100%">
-  </picture>
+  <img alt="Hi, I'm Miel. Amiel Josiah Acuña, software engineer at FEU Tech, Manila. I build software and enjoy working with people. The greeting is written in an ocean of characters with a whale shark swimming through it." src="assets/dive/hero.svg" width="100%">
 </a>
 
-**[Portfolio](https://project-miel.vercel.app) · [LinkedIn](https://www.linkedin.com/in/amiel-acu%C3%B1a) · [Email](mailto:acunaamieljosiah@gmail.com)**
+<p align="center"><b><a href="https://project-miel.vercel.app">Portfolio</a> · <a href="https://www.linkedin.com/in/amiel-josiah-acu%C3%B1a-4786a515a">LinkedIn</a> · <a href="mailto:acunaamieljosiah@gmail.com">Email</a> · <a href="https://project-miel.vercel.app/Amiel_Acuna_CV.pdf">CV</a></b></p>
 
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset="assets/static/work-header-dark.svg">
-  <img alt="$ ls ~/work --pinned" src="assets/static/work-header-light.svg" width="100%">
+  <img alt="−40 m: Selected work. Seven projects, newest first." src="assets/static/work-header-light.svg" width="100%">
 </picture>
 
 <a href="https://github.com/Emyol/KitaKo_Codebase">
-  <picture>
-    <source media="(prefers-color-scheme: dark)" srcset="assets/static/work-kitako-dark.svg">
-    <img alt="01 KitaKo: find a photo in your own words. Flutter, Dart, ONNX Runtime." src="assets/static/work-kitako-light.svg" width="100%">
-  </picture>
+  <img alt="01 KitaKo, Undergraduate thesis · 2026: Private semantic image search that understands Taglish queries and runs entirely on-device. Built with Flutter, Dart, ONNX Runtime, SigLIP-2, IVF-PQ." src="assets/dive/work-kitako.svg" width="100%">
 </a>
 
-[**KitaKo**](https://github.com/Emyol/KitaKo_Codebase): On-device semantic photo search with Taglish support.
+<p align="center"><b>KitaKo</b> · <a href="https://github.com/Emyol/KitaKo_Codebase">code</a></p>
+
+<a href="https://github.com/TadeyRuk/Homestead">
+  <img alt="02 Homestead, NASA Space Apps Challenge · 2026: A co-op space-mission game: scavenge parts, build a spacecraft, fly it together, and learn which design choice decided the run. Built with JavaScript, TypeScript, Canvas 2D, WebRTC, PeerJS." src="assets/dive/work-homestead.svg" width="100%">
+</a>
+
+<p align="center"><b>Homestead</b> · <a href="https://github.com/TadeyRuk/Homestead">code</a> · <a href="https://seedlign.itch.io/homestead">live</a></p>
+
+<a href="https://github.com/Seedlign/eventflow-n8n">
+  <img alt="03 EventFlow, n8n Buildathon finals · 2026: Event lifecycle automation on n8n that checks people in by token and certifies only those who attended and submitted. Built with n8n, JavaScript, Google Sheets, Gmail, Notion." src="assets/dive/work-eventflow.svg" width="100%">
+</a>
+
+<p align="center"><b>EventFlow</b> · <a href="https://github.com/Seedlign/eventflow-n8n">code</a></p>
+
+<a href="https://github.com/Romeo-04/kislap">
+  <img alt="04 Kislap, AppBuildersPH Hackathon · 2026: A reading game for Filipino children that listens to each sentence with a speech model running on the child’s own device. Built with TypeScript, React, Transformers.js, Whisper, PWA." src="assets/dive/work-kislap.svg" width="100%">
+</a>
+
+<p align="center"><b>Kislap</b> · <a href="https://github.com/Romeo-04/kislap">code</a> · <a href="https://romeo-04.github.io/kislap/">live</a></p>
 
 <a href="https://github.com/Emyol/iCARE-Reservation">
-  <picture>
-    <source media="(prefers-color-scheme: dark)" srcset="assets/static/work-icare-dark.svg">
-    <img alt="02 iCARE Reservation: room bookings for 700+ STEM students. Next.js, React, JavaScript." src="assets/static/work-icare-light.svg" width="100%">
-  </picture>
+  <img alt="05 iCARE Reservation, Internal tooling · 2026: A shared-facility portal that reduces booking friction and catches room conflicts before submission. Built with Next.js, JavaScript, Node test runner." src="assets/dive/work-icare.svg" width="100%">
 </a>
 
-[**iCARE Reservation**](https://github.com/Emyol/iCARE-Reservation): AVR and Training Room scheduling with JavaScript, React, and Next.js.
+<p align="center"><b>iCARE Reservation</b> · <a href="https://github.com/Emyol/iCARE-Reservation">code</a></p>
 
 <a href="https://github.com/Emyol/BekiLang">
-  <picture>
-    <source media="(prefers-color-scheme: dark)" srcset="assets/static/work-bekilang-dark.svg">
-    <img alt="03 BekiLang: Swardspeak, compiled. Python, Flask." src="assets/static/work-bekilang-light.svg" width="100%">
-  </picture>
+  <img alt="06 BekiLang, Domain-specific language · 2026: A working programming language and web playground built around Philippine Swardspeak. Built with Python, Compilers, Interpreters." src="assets/dive/work-bekilang.svg" width="100%">
 </a>
 
-[**BekiLang**](https://github.com/Emyol/BekiLang): A Swardspeak-inspired programming language with a Python compiler and interpreter, and a Flask web interface.
+<p align="center"><b>BekiLang</b> · <a href="https://github.com/Emyol/BekiLang">code</a></p>
 
 <a href="https://github.com/Emyol/city-sense">
-  <picture>
-    <source media="(prefers-color-scheme: dark)" srcset="assets/static/work-citysense-dark.svg">
-    <img alt="04 CitySense: urban heat and greenspace from orbit. TypeScript, React, Leaflet, Vite." src="assets/static/work-citysense-light.svg" width="100%">
-  </picture>
+  <img alt="07 CitySense, NASA Space Apps Challenge · 2025: A planning cockpit that combines live environmental layers with an AI-assisted policy workflow. Built with TypeScript, Vite, Leaflet, NASA GIBS, DeepSeek R1." src="assets/dive/work-citysense.svg" width="100%">
 </a>
 
-[**CitySense**](https://github.com/Emyol/city-sense): Earth observation layers for exploring urban heat, greenspace, water, and population.
+<p align="center"><b>CitySense</b> · <a href="https://github.com/Emyol/city-sense">code</a></p>
+
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="assets/static/stack-header-dark.svg">
+  <img alt="−200 m: Toolkit. What I build with." src="assets/static/stack-header-light.svg" width="100%">
+</picture>
 
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset="assets/static/stack-dark.svg">
@@ -62,7 +70,7 @@
 
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset="assets/static/graph-header-dark.svg">
-  <img alt="$ git log --graph --all" src="assets/static/graph-header-light.svg" width="100%">
+  <img alt="−240 m: The trench. A year of commits, eaten daily." src="assets/static/graph-header-light.svg" width="100%">
 </picture>
 
 <picture>
@@ -70,7 +78,7 @@
   <img alt="A snake eating the contribution graph. Regenerated daily." src="https://raw.githubusercontent.com/Emyol/Emyol/output/github-snake.svg" width="100%">
 </picture>
 
-**`$ git log --oneline -3`**
+**Latest commits**
 
 <!-- recent:start -->
 - [`94ca54c`](https://github.com/Emyol/MielPortfolio/commit/94ca54c90eb046569787fde52ae9aaa539ff2205) **MielPortfolio**: feat: add Homestead, EventFlow and Kislap to Selected work
@@ -80,5 +88,5 @@
 
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset="assets/static/footer-dark.svg">
-  <img alt="$ exit: salamat sa pagbisita, thanks for stopping by." src="assets/static/footer-light.svg" width="100%">
+  <img alt="0 m: Back to the surface. Salamat sa pagbisita, thanks for stopping by." src="assets/static/footer-light.svg" width="100%">
 </picture>

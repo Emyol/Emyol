@@ -27,8 +27,8 @@ VALUE_X = 420
 
 # One colour per language slot (top five, then Other), chosen per theme for contrast.
 SERIES = {
-    'dark': ('#7ee2a0', '#4fa36e', '#a8d8ff', '#d7e4da', '#2b6a44', '#7d8f82'),
-    'light': ('#1f7a43', '#3f9a62', '#0b5cad', '#1d2a21', '#5d6e62', '#7f9486'),
+    'dark': ('#2997ff', '#8cc8ff', '#ececec', '#9d9d9d', '#1b74c2', '#6a6a6a'),
+    'light': ('#0058b8', '#2f74c0', '#0b0b0b', '#4f4f4a', '#003b7a', '#6b6b66'),
 }
 
 
