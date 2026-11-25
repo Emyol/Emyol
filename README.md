@@ -81,9 +81,9 @@
 **Latest commits**
 
 <!-- recent:start -->
-- [`94ca54c`](https://github.com/Emyol/MielPortfolio/commit/94ca54c90eb046569787fde52ae9aaa539ff2205) **MielPortfolio**: feat: add Homestead, EventFlow and Kislap to Selected work
-- [`3caf682`](https://github.com/Emyol/MielPortfolio/commit/3caf682bf966d77474adafb650240e4beba26b39) **MielPortfolio**: fix: keep certificate images inside their cards in Safari
-- [`a565e2b`](https://github.com/Emyol/MielPortfolio/commit/a565e2b051be55a352135d068ad23e9b736d785a) **MielPortfolio**: docs: record the performance pass in current-state
+- [`d0436fe`](https://github.com/Emyol/MielPortfolio/commit/d0436fed6eede310a50a597b9e759140e60c9d58) **MielPortfolio**: docs: record the Recognition medals merge in current-state
+- [`547dda4`](https://github.com/Emyol/MielPortfolio/commit/547dda48230b14484614e7eaaa549529f20c3501) **MielPortfolio**: fix: full award titles for screen readers, no stray dividers in Also
+- [`a30ba17`](https://github.com/Emyol/MielPortfolio/commit/a30ba17bdd1927cb788a17b3d633100825476db1) **MielPortfolio**: docs: record the Recognition medals in current-state
 <!-- recent:end -->
 
 <picture>
