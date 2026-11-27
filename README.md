@@ -81,9 +81,9 @@
 **Latest commits**
 
 <!-- recent:start -->
-- [`a715390`](https://github.com/Emyol/CreativePortfolio/commit/a7153904ac3409f2b3a76af56437d3ac1319d2ec) **CreativePortfolio**: docs\(daily\): explain the one-way flag and early margins in useInViewO…
-- [`a0248a9`](https://github.com/Emyol/MielPortfolio/commit/a0248a91c1f4921fdcf23936c20c5c6f67e5a8d4) **MielPortfolio**: feat: use a hero screenshot as the link preview image
-- [`825736e`](https://github.com/Emyol/MielPortfolio/commit/825736e3dedcf61a4ee2042c9f64c5fe14cb56ed) **MielPortfolio**: perf: mobile Lighthouse to 100 without visual changes
+- [`674ac6b`](https://github.com/Emyol/SA-DTR-Maker/commit/674ac6b8998a9f06814e39daedb54110cd8ea19a) **SA-DTR-Maker**: docs: update current state after push
+- [`3e2a59e`](https://github.com/Emyol/SA-DTR-Maker/commit/3e2a59e729c23de884588146f28092e755221677) **SA-DTR-Maker**: docs: add project agent docs \(current state, security, discussion board\)
+- [`2b78323`](https://github.com/Emyol/SA-DTR-Maker/commit/2b7832391ee45459724efa5db178473399fc7b4a) **SA-DTR-Maker**: feat: update DTR template for 1st term 2026-2027
 <!-- recent:end -->
 
 <picture>
