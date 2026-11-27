@@ -81,9 +81,9 @@
 **Latest commits**
 
 <!-- recent:start -->
-- [`d0436fe`](https://github.com/Emyol/MielPortfolio/commit/d0436fed6eede310a50a597b9e759140e60c9d58) **MielPortfolio**: docs: record the Recognition medals merge in current-state
-- [`547dda4`](https://github.com/Emyol/MielPortfolio/commit/547dda48230b14484614e7eaaa549529f20c3501) **MielPortfolio**: fix: full award titles for screen readers, no stray dividers in Also
-- [`a30ba17`](https://github.com/Emyol/MielPortfolio/commit/a30ba17bdd1927cb788a17b3d633100825476db1) **MielPortfolio**: docs: record the Recognition medals in current-state
+- [`a715390`](https://github.com/Emyol/CreativePortfolio/commit/a7153904ac3409f2b3a76af56437d3ac1319d2ec) **CreativePortfolio**: docs\(daily\): explain the one-way flag and early margins in useInViewO…
+- [`a0248a9`](https://github.com/Emyol/MielPortfolio/commit/a0248a91c1f4921fdcf23936c20c5c6f67e5a8d4) **MielPortfolio**: feat: use a hero screenshot as the link preview image
+- [`825736e`](https://github.com/Emyol/MielPortfolio/commit/825736e3dedcf61a4ee2042c9f64c5fe14cb56ed) **MielPortfolio**: perf: mobile Lighthouse to 100 without visual changes
 <!-- recent:end -->
 
 <picture>
